@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700;900&display=swap');
+
 
 *{
   margin: 0px;
   padding: 0px;
+  font-family: 'Urbanist', sans-serif;
 }
 
 
@@ -13,20 +16,19 @@
   border-radius: 100px !important;
 }
 
-<<<<<<< HEAD
 .leaflet-container {
   width: 100vh; 
   height: 100vh;
 }
-=======
   .logo{
    display: block;
    position: absolute;
    font-size: x-large;
    padding-right: 12px;
  } 
- .px-2{
-  padding-left: 0px;
-  padding-right: 0px;
- }
->>>>>>> 7baf496ccf75c951e8efce0f8255f860cd26ae33
+
+ .sticker{
+  position: sticky;
+  top: 0px;
+
+}

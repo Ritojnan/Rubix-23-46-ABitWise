@@ -46,13 +46,10 @@ function talk() {
 export default function chatbot() {
   return (
     <>
-      <h3 id="chatLog">
-        {" "}
-        Chatbot <br />{" "}
-      </h3>
+      <h1 id="chatLog">
+        Chatbot
+      </h1>
       <ul id="myList">
-        <li>Coffee</li>
-        <li>Tea</li>
       </ul>
 
       <input id="userBox" type="text" onKeyDown={keyPressedDown} />
