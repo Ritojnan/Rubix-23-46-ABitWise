@@ -29,6 +29,20 @@ const know = {
     {
     document.getElementById("chatLog").innerHTML += "I don't understand... <br>";
     }
+
+
+    // Create an "li" node:
+const node = document.createElement("li");
+
+// Create a text node:
+const textnode = document.createTextNode("Water");
+
+// Append the text node to the "li" node:
+node.appendChild(textnode);
+
+// Append the "li" node to the list:
+document.getElementById("myList").appendChild(node);
+
     }
     
 export default function chatbot() {
@@ -38,6 +52,10 @@ export default function chatbot() {
     <>
     
     <h3 id="chatLog"> Chatbot <br/> </h3>
+    <ul id="myList">
+  <li>Coffee</li>
+  <li>Tea</li>
+</ul>
 
 <input id="userBox" type="text" onKeyDown={keyPressedDown}/>
 

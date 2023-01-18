@@ -1,0 +1,17 @@
+$primary:#673ab7;
+$light: #ffff33;
+@import "../node_modules/bootstrap/scss/_functions";
+@import "../node_modules/bootstrap/scss/_variables";
+
+$custom-theme-colors:(
+    "del":#654321,
+    "delta":#650021
+);
+$theme-colors:map-merge($custom-theme-colors , $theme-colors);
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+// 005152
+// 008b8e
+// f7df76
+// f7dd32
+// 919302
