@@ -1,9 +1,17 @@
 import React from 'react'
 
 const know = {
-    "hello" : "Hi there!",
-    "How are you?" : "I am Fine",
-    "How old are you?" : "I am infinity in age"
+
+    "Hello" : "&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  Hi there!",
+    "hello" : "&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  Hi there!",
+    "HELLO" : "&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  Hi there!",
+    "Who are you?" : "&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp I am Nikhil's Assistant",
+    "How are you?" : "&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp I am Fine",
+    "How old are you?" : "&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp I am infinity in age"
+    
+    
+    
+    
     };
     
     function keyPressedDown(event){
@@ -28,7 +36,11 @@ export default function chatbot() {
 
     
     <>
+    
+    <h3 id="chatLog"> Chatbot <br/> </h3>
+
 <input id="userBox" type="text" onKeyDown={keyPressedDown}/>
+
 </>
   )
 }
