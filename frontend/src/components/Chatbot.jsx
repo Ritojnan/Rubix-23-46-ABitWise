@@ -2,13 +2,12 @@ import React from "react";
 import { createElement } from 'react';
 
 const know = {
-  Hello: "&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  Hi there!",
-  hello: "&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  Hi there!",
-  HELLO: "&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  Hi there!",
-  "Who are you?": "&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp I am Nikhil's Assistant",
-  "How are you?": "&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp I am Fine",
-  "How old are you?":
-    "&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp I am infinity in age",
+  "Hello": "Hi there!",
+  "hello": "Hi there!",
+  "HELLO": "Hi there!",
+  "Who are you?": "I am Nikhil's Assistant",
+  "How are you?": "I am Fine",
+  
 };
 
 function keyPressedDown(event) {
@@ -17,32 +16,40 @@ function keyPressedDown(event) {
   }
 }
 function talk() {
-  var user = document.getElementById("userBox").value;
-  document.getElementById("userBox").value = "";
-  document.getElementById("chatLog").innerHTML += user + "<br>";
-  const node = document.createElement("Chatbot");
-  const textnode = document.createTextNode("Water");
-  node.appendChild(textnode);
-  document.getElementById("myList").appendChild(node);
+  var user = document.getElementById("userBox").value;//get value
+  document.getElementById("userBox").value = "";//set input to nothing
+  // document.getElementById("chatLog").innerHTML += user + "<br>";
+  // const element = createElement(type, props, ...children)
 
+  const node = document.createElement("li");
+  //create the text box for user input
+  const userInputBox = document.createTextNode(`${user}`);
+  node.appendChild(userInputBox);
+  document.getElementById("myList").appendChild(node);
+  
+  
+  
+  
+  
+  const node2 = document.createElement("li");
   if (user in know) {
-    document.getElementById("chatLog").innerHTML += know[user] + "<br>";
-  } else {
-    document.getElementById("chatLog").innerHTML +=
-      "I don't understand... <br>";
+    const chatBotBox = document.createTextNode(`${know[user]}`);
+    node.appendChild(chatBotBox);
+    document.getElementById("myList").appendChild(node2);
+    } else {
+  const chatBotBox = document.createTextNode(`I don't understand`);
+  node.appendChild(chatBotBox);
+  document.getElementById("myList").appendChild(node2);
   }
 }
 
 export default function chatbot() {
   return (
     <>
-      <h3 id="chatLog">
-        {" "}
-        Chatbot <br />{" "}
-      </h3>
+      <h1 id="chatLog">
+        Chatbot
+      </h1>
       <ul id="myList">
-        <li>Coffee</li>
-        <li>Tea</li>
       </ul>
 
       <input id="userBox" type="text" onKeyDown={keyPressedDown} />

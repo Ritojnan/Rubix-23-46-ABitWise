@@ -6,66 +6,28 @@ import Col from "react-bootstrap/Col";
 export default function Navbar() {
   return (
     <>
-       
-      <header className="p-3 text-bg-dark">
-        
-        <div className="container">
-          <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-            <a
-              href="/"
-              className="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none"
-            >
-              <div className="text-start "><b>resQuick</b></div>
+     <div className="sticker">
+        <div className="d-flex justify-content-center  p-2 bg-light">
+          <h1 className="text-dark"><b>resQuick</b></h1>
+        </div>
+        <div className="d-flex justify-content-evenly bg-primary text-white ">
+          <div>
+            <a href="#worksection" className="text-white">
+              <b>Volunteer</b>
             </a>
-            
-
-            <ul className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-              
-              <li>
-                <a href="#" className="nav-link px-2 text-white">
-                  Volunteer
-                </a>
-              </li>
-              <li>
-                <a href="#" className="nav-link px-2 text-white">
-                  Donation
-                </a>
-              </li>
-              <li>
-                <a href="#" className="nav-link px-2 text-white">
-                  Webinar
-                </a>
-              </li>
-              {/* <li>
-                <a href="#" className="nav-link px-2 text-white">
-                  Translate
-                </a>
-              </li>
-              <li>
-                <a href="#" className="nav-link px-2 text-white">
-                  Flashlight
-                </a>
-              </li>
-              <li>
-                <a href="#" className="nav-link px-2 text-white">
-                  Siren
-                </a>
-              </li> */}
-            </ul>
-
-            
-
-            <div className="text-end">
-              {/* <button type="button" className="btn btn-outline-light me-2">
-                Login
-              </button>
-              <button type="button" className="btn btn-warning">
-                Sign-up
-              </button> */}
-            </div>
+          </div>
+          <div>
+            <a href="#contactsection" className="text-white">
+              <b>Donation</b>
+            </a>
+          </div>
+          <div>
+            <a href="#aboutsection" className="text-white">
+              <b>Webinar</b>
+            </a>
           </div>
         </div>
-      </header>
+      </div>
     </>
   );
 }
