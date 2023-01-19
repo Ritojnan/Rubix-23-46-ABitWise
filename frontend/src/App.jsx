@@ -56,16 +56,16 @@ function App() {
   return (
     <>
       <Navbar></Navbar>
-      <motion.Button
+      <Button
         variant="primary"
         className="chatbot-button btn btn-primary"
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
+        // whileHover={{ move }}
+        // whileTap={{ scale: 0.9 }}
         onClick={handleShow}
         size="lg"
       >
-       <h3><b> SOS CHATBOT</b></h3>
-      </motion.Button>
+       <b> SOS CHATBOT</b>
+      </Button>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
