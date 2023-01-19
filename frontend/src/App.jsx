@@ -4,7 +4,7 @@ import "./App.css";
 import "./custom.scss";
 import { Modal, Button } from "react-bootstrap";
 // import "bootstrap/dist/css/bootstrap.css";
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route,Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -23,10 +23,20 @@ import { Map, Marker } from "pigeon-maps"
 import Chatbot from "./components/Chatbot.jsx";
 import Navbar from "./components/Navbar";
 
+var longitude
+var latitude
 function App() {
   // const [count, setCount] = useState(0);
   const [show, setShow] = useState(false);
-
+// function 
+// (navigator.geolocation.watchPosition((position=>{
+//   console.log(position.coords.longitude)
+//   console.log(position.coords.latitude)
+// longitude = position.coords.longitude
+// latitude = position.coords.latitude
+// })))
+// console.log("this is "+longitude)
+// console.log("this is "+latitude)
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [isSubmitted, setSubmitted] = useState(true);
@@ -57,6 +67,15 @@ function App() {
   return (
     <>
       <BrowserRouter>
+      {/* <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="blogs" element={<Blogs />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="*" element={<NoPage />} />
+        </Route>
+      </Routes> */}
+
       <Navbar></Navbar>
       <Button
         variant="primary"
@@ -79,31 +98,18 @@ function App() {
         
       </Modal>
 
-      
-    {/* <div>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-        </ul>
-      </nav>
-
+      {/* <Link to="/">Home</Link>
+      <Link to="/about">About</Link>
+      <Routes>
       <Route exact path="/" component={Home} />
       <Route path="/about" component={About} />
-    </div> */}
+      </Routes> */}
 
         <div className="container">
           <div className="row featurette">
             <div className="col-md-7 ">
           
-    <Map height={300} defaultCenter={[50.879, 4.6997]} defaultZoom={11}>
-      <Marker width={50} anchor={[50.879, 4.6997]} />
-    </Map>
- 
+    
 
 
               {/* <a href="https://www.instagram.com/your-profile">
@@ -114,7 +120,7 @@ function App() {
 <i className="bi-github"></i>
 </a> */}
 
-              <h1>Working in progress</h1>
+              {/* <h1>Working in progress</h1>
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
@@ -134,6 +140,16 @@ function App() {
                 laudantium quos perspiciatis consequatur ad! Consequatur dolorum
                 inventore a fuga recusandae nemo neque. Ex.
               </motion.div>
+            </div> */}
+            <div className="px-5 mb-4 bg-light rounded-3" id="">
+
+              <div className="container-fluid py-5">
+                 <Map height={300} defaultCenter={[50.879, 4.6997]} defaultZoom={11}>
+      <Marker width={50} anchor={[50.879, 4.6997]} />
+      <Marker width={50} anchor={[51.879, 4.6997]} />
+    </Map>
+ 
+              </div>
             </div>
             <div className="col-md-5">
               <div className=" bg-custom-color">
@@ -181,6 +197,7 @@ function App() {
               </div>
             </div>
           </div>
+        </div>
         </div>
         <main>
           <div className="container py-4">
