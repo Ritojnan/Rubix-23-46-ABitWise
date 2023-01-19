@@ -1,13 +1,37 @@
 import React from "react";
-import { createElement } from 'react';
+import { createElement } from "react";
+
+// $(document).ready(function(){
+//   $("#myInput").on("keyup", function() {
+//     var value = $(this).val().toLowerCase();
+//     $("#myTable tr").filter(function() {
+//       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+//     });
+//   });
+// });
+
+function filterFunction() {
+  var input, filter, ul, li, a, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  div = document.getElementById("myDropdown");
+  a = div.getElementsByTagName("a");
+  for (i = 0; i < a.length; i++) {
+    txtValue = a[i].textContent || a[i].innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      a[i].style.display = "";
+    } else {
+      a[i].style.display = "none";
+    }
+  }
+}
 
 const know = {
-  "Hello": "Hi there!",
-  "hello": "Hi there!",
-  "HELLO": "Hi there!",
+  Hello: "Hi there!",
+  hello: "Hi there!",
+  HELLO: "Hi there!",
   "Who are you?": "I am Nikhil's Assistant",
   "How are you?": "I am Fine",
-  
 };
 
 function keyPressedDown(event) {
@@ -15,44 +39,44 @@ function keyPressedDown(event) {
     talk();
   }
 }
-function talk() {
-  var user = document.getElementById("userBox").value;//get value
-  document.getElementById("userBox").value = "";//set input to nothing
-  // document.getElementById("chatLog").innerHTML += user + "<br>";
-  // const element = createElement(type, props, ...children)
 
-  const node = document.createElement("li");
-  //create the text box for user input
-  const userInputBox = document.createTextNode(`${user}`);
+function addElement(data) {
+  const node = document.createElement("p");
+  const userInputBox = document.createTextNode(`${data}`);
   node.appendChild(userInputBox);
   document.getElementById("myList").appendChild(node);
-  
-  
-  
-  
-  
-  const node2 = document.createElement("li");
+}
+function talk() {
+  var user = document.getElementById("userBox").value; //get value
+  document.getElementById("userBox").value = ""; //set input to nothing
+  addElement(user);   //create the text box for user input
+
   if (user in know) {
-    const chatBotBox = document.createTextNode(`${know[user]}`);
-    node.appendChild(chatBotBox);
-    document.getElementById("myList").appendChild(node2);
-    } else {
-  const chatBotBox = document.createTextNode(`I don't understand`);
-  node.appendChild(chatBotBox);
-  document.getElementById("myList").appendChild(node2);
+    addElement(know[user]);
+  } else {
+    addElement(`I don't understand`);
   }
 }
 
 export default function chatbot() {
   return (
     <>
-      <h1 id="chatLog">
-        Chatbot
-      </h1>
-      <ul id="myList">
-      </ul>
+      <h1 id="chatLog">Chatbot</h1>
+      
+      <div id="myList"></div>
+      <div class="container text-center">
+        <div class="row">
+          <div class="col-10">
 
-      <input id="userBox" type="text" onKeyDown={keyPressedDown} />
+          <div class="mb-3">
+    <input type="text" className="form-control" id="userBox" onKeyDown={keyPressedDown} placeholder="Send Message"/>  </div>
+          </div>
+          <div class="col-2">
+<button className="btn btn-primary" onClick={talk}>Send</button>
+          </div>
+        </div>
+      </div>
+
     </>
   );
 }

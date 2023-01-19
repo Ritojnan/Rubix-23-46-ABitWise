@@ -17,6 +17,7 @@ import "leaflet/dist/leaflet.css";
 // import "bootstrap/dist/css/bootstrap.css";
 import Form from "react-bootstrap/Form";
 import { motion } from "framer-motion";
+import { Map, Marker } from "pigeon-maps"
 
 //Custom Components
 import Chatbot from "./components/Chatbot.jsx";
@@ -55,6 +56,7 @@ function App() {
 
   return (
     <>
+      <BrowserRouter>
       <Navbar></Navbar>
       <Button
         variant="primary"
@@ -69,22 +71,16 @@ function App() {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>SOS Chatbot</Modal.Title>
+          <Modal.Title><h1>SOS Chatbot</h1></Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Chatbot></Chatbot>
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary">Save Changes</Button>
-        </Modal.Footer>
+        
       </Modal>
 
-      <>
-        {/* <BrowserRouter>
-    <div>
+      
+    {/* <div>
       <nav>
         <ul>
           <li>
@@ -98,18 +94,24 @@ function App() {
 
       <Route exact path="/" component={Home} />
       <Route path="/about" component={About} />
-    </div>
-  </BrowserRouter> */}
+    </div> */}
 
         <div className="container">
           <div className="row featurette">
             <div className="col-md-7 ">
+          
+    <Map height={300} defaultCenter={[50.879, 4.6997]} defaultZoom={11}>
+      <Marker width={50} anchor={[50.879, 4.6997]} />
+    </Map>
+ 
+
+
               {/* <a href="https://www.instagram.com/your-profile">
   <i className="bi-instagram"></i>
 
 </a>
 <a href="https://github.com/your-username">
-  <i className="bi-github"></i>
+<i className="bi-github"></i>
 </a> */}
 
               <h1>Working in progress</h1>
@@ -118,7 +120,7 @@ function App() {
                 whileTap={{ scale: 0.9 }}
                 className="btn btn-primary"
                 onClick={() => null}
-              >
+                >
                 Launch
               </motion.button>
               <motion.div
@@ -126,7 +128,7 @@ function App() {
                 // onScroll={(e) => {e.preventDefault();}}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
-              >
+                >
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                 Impedit ex, perferendis amet, neque nulla dolorem ducimus
                 laudantium quos perspiciatis consequatur ad! Consequatur dolorum
@@ -186,14 +188,14 @@ function App() {
               <a
                 href="/"
                 className="d-flex align-items-center text-dark text-decoration-none"
-              >
+                >
                 <span className="fs-4">Jumbotron example</span>
               </a>
             </header>
 
             <div className="px-5 mb-4 bg-light rounded-3" id="contactsection">
               <div className="container-fluid py-5">
-                <h1 className="display-5 fw-bold">Contact</h1>
+                <h1 className="display-5 fw-bold">Help some one in need</h1>
                 {isSubmitted ? (
                   <>
                     <Form ref={formRef} onSubmit={handleSubmit} className="">
@@ -212,7 +214,7 @@ function App() {
                           <Form.Group
                             className="mb-3"
                             controlId="entry.162308873"
-                          >
+                            >
                             <Form.Label>Email address</Form.Label>
                             <Form.Control
                               type="email"
@@ -220,14 +222,14 @@ function App() {
                               name="entry.162308873"
                               maxLength="50"
                               required
-                            />
+                              />
                           </Form.Group>
                         </Col>
                         <Col lg={6} md={6}>
                           <Form.Group
                             className="mb-3"
                             controlId="entry.1166974658"
-                          >
+                            >
                             <Form.Label>Phone Number</Form.Label>
                             <Form.Control
                               type="number"
@@ -235,7 +237,7 @@ function App() {
                               name="entry.1166974658"
                               maxLength="12"
                               required
-                            />
+                              />
                           </Form.Group>
                         </Col>
                       </Row>
@@ -254,7 +256,7 @@ function App() {
                         type="text"
                         className="visually-hidden"
                         id="chonky"
-                      />
+                        />
                       <Button variant="btn btn-md text-bg-dark" type="submit">
                         Submit
                       </Button>
@@ -277,7 +279,7 @@ function App() {
                       src="../src/assets/profile-img/profileimg2.png"
                       className="img-fluid round-img py-5"
                       alt="image"
-                    />
+                      />
                     <figcaption>Caption for the image</figcaption>
                   </figure>
 
@@ -317,7 +319,8 @@ function App() {
             <footer className="pt-3 mt-4 text-muted border-top">© 2022</footer>
           </div>
         </main>
-      </>
+      
+                      </BrowserRouter>
     </>
   );
 }
