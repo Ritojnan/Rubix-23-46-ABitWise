@@ -108,8 +108,14 @@ function App() {
         <div className="container">
           <div className="row featurette">
             <div className="col-md-7 ">
+
+                  <Map></Map>      {/*when i put this here the map becomes big in size and overflows in the website  */}
           
     
+<<<<<<< HEAD
+=======
+ 
+>>>>>>> 5889e3bfd97035853aec7c3aef653e492ea3226b
 
 
               {/* <a href="https://www.instagram.com/your-profile">
