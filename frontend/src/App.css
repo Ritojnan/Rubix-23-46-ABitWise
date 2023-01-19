@@ -7,7 +7,17 @@
   font-family: 'Urbanist', sans-serif;
 }
 
+h1{
+  font-weight: 900;
+}
 
+h2{
+  font-weight: 700;
+}
+
+h3,p{
+  font-weight: 400;
+}
 
 .chatbot-button {
   position: fixed;
@@ -31,4 +41,8 @@
   position: sticky;
   top: 0px;
 
+}
+
+.white-text{
+  color: white;
 }

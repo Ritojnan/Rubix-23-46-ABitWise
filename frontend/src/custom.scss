@@ -5,7 +5,9 @@ $light: #48aaad;
 
 $custom-theme-colors:(
     "del":#654321,
-    "delta":#650021
+    "delta":#650021,
+    "neon" : #39ff14,
+    "accentwhite" : #f5fbff,
 );
 $theme-colors:map-merge($custom-theme-colors , $theme-colors);
 @import "../node_modules/bootstrap/scss/bootstrap.scss";

@@ -8,9 +8,9 @@ export default function Navbar() {
     <>
      <div className="sticker">
         <div className="d-flex justify-content-center  p-2 bg-light">
-          <h1 className="text-dark"><b>resQuick</b></h1>
+          <h1 className="white-text"><b>resQuick</b></h1>
         </div>
-        <div className="d-flex justify-content-evenly bg-primary text-white ">
+        <div className="d-flex justify-content-evenly bg-primary text-white  ">
           <div>
             <a href="#worksection" className="text-white">
               <b>Volunteer</b>
