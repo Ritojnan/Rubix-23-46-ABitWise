@@ -50,8 +50,8 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
+        {/* <Link to="/">Home</Link>
+        <Link to="/about">About</Link> */}
 
         <Navbar></Navbar>
         <UserDiff></UserDiff>
@@ -191,25 +191,16 @@ function App() {
                 </div>
               </div>
               <div className="col-md-6">
-                <div className="h-100 p-5 bg-light border rounded-3">
-                  <h2>Add borders</h2>
+                <div className="h-100 p-5 bg-light border rounded-3 my-3">
+                  <h2>Social Media</h2>
                   <div>
-                    <h2 id="section1">Section 1</h2>
-                    <p>Content for section 1</p>
-                    <h2 id="section2">Section 2</h2>
-                    <p>Content for section 2</p>
+                    <h2 id="section1">Folow on Instagram for Latest News</h2>
+<a hrerf="instagram.com/resquick_abitwise"><b>In</b></a>
+                    <h2 id="section2">Follow on Twitter for Updates</h2>
+<a hrerf="twitter.com/resquick_1"><b>Tw</b></a>
                   </div>
 
-                  <p>
-                    Or, keep it light and add a border for some added definition
-                    to the boundaries of your content. Be sure to look under the
-                    hood at the source HTML here as we've adjusted the alignment
-                    and sizing of both column's content for equal-height.
-                  </p>
-                  <button className="btn btn-outline-secondary" type="button">
-                    Example button
-                  </button>
-                </div>
+                 </div>
               </div>
             </div>
 
@@ -218,11 +209,11 @@ function App() {
         </main>
         <About />
         <Routes>
-          <Route path="/" component={<MapCustom />} />
+          {/* <Route path="/" component={<MapCustom />} />
           <Route path="/locate" component={<MapCustom />} />
           <Route path="/about" component={<About />} />
           <Route path="/helpme" component={<About />} />
-          <Route path="/rescue" component={<About />} />
+          <Route path="/rescue" component={<About />} /> */}
         </Routes>
       </BrowserRouter>
     </>

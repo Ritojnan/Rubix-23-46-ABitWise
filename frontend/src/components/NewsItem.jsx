@@ -7,7 +7,7 @@ export default function NewItem() {
 
                       <figure>
                     <img
-                      src="../src/assets/profile-img/profileimg2.png"
+                      src="../assets/earhquake.jpg"
                       className="img-fluid round-img py-5"
                       alt="image"
                       />
@@ -15,10 +15,7 @@ export default function NewItem() {
                   </figure>
 
                   <p>
-                    Swap the background-color utility and add a `.text-*` color
-                    utility to mix up the jumbotron look. Then, mix and match
-                    with additional component themes and more.
-                  </p>
+News Content                  </p>
 </div>
     </>
   )

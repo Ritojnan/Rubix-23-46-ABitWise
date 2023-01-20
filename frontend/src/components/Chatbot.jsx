@@ -4,13 +4,13 @@ import { createElement } from "react";
 
 const know = {
   "hello": "Hi there!",
-  "help me":"You can go to this link resquick.web.app/helpme"
-  "i want to help others":"You can go to this link resquick.web.app/rescue"
-  "share my location" : "You can go to this link resquick.web.app/locate"
-  "view Map":"You can go to this link resquick.web.app/viewmap"
-        "find nearest shelter":"You can go to this link resquick.web.app/viewmap"
-        "current situation":"You can go to this link resquick.web.app/newsandpost"
-        "navigate through the page":"We are still working on this feature. Please use the other commands to find need specific links"
+  "help me":"You can go to this link resquick.web.app/helpme",
+  "i want to help others":"You can go to this link resquick.web.app/rescue",
+  "share my location" : "You can go to this link resquick.web.app/locate",
+  "view Map":"You can go to this link resquick.web.app/viewmap",
+        "find nearest shelter":"You can go to this link resquick.web.app/viewmap",
+        "current situation":"You can go to this link resquick.web.app/newsandpost",
+        "navigate through the page":"We are still working on this feature. Please use the other commands to find need specific links",
 };
 
 function keyPressedDown(event) {
