@@ -2,27 +2,16 @@ import React from "react";
 import { createElement } from "react";
 
 function filterFunction() {
-  var input, filter, ul, li, a, i;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  div = document.getElementById("myDropdown");
-  a = div.getElementsByTagName("a");
-  for (i = 0; i < a.length; i++) {
-    txtValue = a[i].textContent || a[i].innerText;
-    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-      a[i].style.display = "";
-    } else {
-      a[i].style.display = "none";
-    }
-  }
-}
 
 const know = {
-  Hello: "Hi there!",
-  hello: "Hi there!",
-  HELLO: "Hi there!",
-  "Who are you?": "I am Nikhil's Assistant",
-  "How are you?": "I am Fine",
+  "hello": "Hi there!",
+  "help me":"You can go to this link resquick.web.app/helpme"
+  "i want to help others":"You can go to this link resquick.web.app/rescue"
+  "share my location" : "You can go to this link resquick.web.app/locate"
+  "view Map":"You can go to this link resquick.web.app/viewmap"
+        "find nearest shelter":"You can go to this link resquick.web.app/viewmap"
+        "current situation":"You can go to this link resquick.web.app/newsandpost"
+        "navigate through the page":"We are still working on this feature. Please use the other commands to find need specific links"
 };
 
 function keyPressedDown(event) {
