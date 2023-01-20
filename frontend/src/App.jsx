@@ -3,40 +3,24 @@ import React, { useRef, useState } from "react";
 import "./App.css";
 import "./custom.scss";
 import { Modal, Button } from "react-bootstrap";
-// import "bootstrap/dist/css/bootstrap.css";
-import { BrowserRouter, Routes, Route,Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-// import Map from  './components/Map'
-// import { MapContainer, TileLayer, useMap,Map,Marker,Popup } from 'react-leaflet'
-// import { Map, Marker, Popup, TileLayer } from "react-leaflet";
-// import { Icon } from "leaflet";
-import "leaflet/dist/leaflet.css";
-// import Modal from "react-bootstrap/Modal";
-// import "bootstrap/dist/css/bootstrap.css";
+import MapCustom from "./components/MapCustom";
 import Form from "react-bootstrap/Form";
 import { motion } from "framer-motion";
-import { Map, Marker } from "pigeon-maps"
+import * as Icon from "react-bootstrap-icons";
 
 //Custom Components
 import Chatbot from "./components/Chatbot.jsx";
 import Navbar from "./components/Navbar";
+import UserDiff from "./components/UserDiff";
+import About from "./components/About";
+import NewsItem from "./components/NewsItem";
 
-var longitude
-var latitude
 function App() {
-  // const [count, setCount] = useState(0);
   const [show, setShow] = useState(false);
-// function 
-// (navigator.geolocation.watchPosition((position=>{
-//   console.log(position.coords.longitude)
-//   console.log(position.coords.latitude)
-// longitude = position.coords.longitude
-// latitude = position.coords.latitude
-// })))
-// console.log("this is "+longitude)
-// console.log("this is "+latitude)
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [isSubmitted, setSubmitted] = useState(true);
@@ -53,8 +37,7 @@ function App() {
     }
     setSubmitted(!isSubmitted);
     const formData = new FormData(formRef.current);
-    const url =
-      "https://docs.google.com/forms/d/e//formResponse";
+    const url = "https://docs.google.com/forms/d/e//formResponse";
 
     fetch(url, {
       method: "POST",
@@ -67,143 +50,55 @@ function App() {
   return (
     <>
       <BrowserRouter>
-      {/* <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="blogs" element={<Blogs />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="*" element={<NoPage />} />
-        </Route>
-      </Routes> */}
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
 
-      <Navbar></Navbar>
-      <Button
-        variant="primary"
-        className="chatbot-button btn btn-primary"
-        // whileHover={{ move }}
-        // whileTap={{ scale: 0.9 }}
-        onClick={handleShow}
-        size="lg"
-      >
-       <b> SOS CHATBOT</b>
-      </Button>
+        <Navbar></Navbar>
+        <UserDiff></UserDiff>
+        <Button
+          variant="primary"
+          className="chatbot-button btn btn-primary"
+          // whileHover={{ move }}
+          // whileTap={{ scale: 0.9 }}
+          onClick={handleShow}
+          size="lg"
+        >
+          <b> SOS CHATBOT</b>
+        </Button>
 
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title><h1>SOS Chatbot</h1></Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Chatbot></Chatbot>
-        </Modal.Body>
-        
-      </Modal>
-
-      {/* <Link to="/">Home</Link>
-      <Link to="/about">About</Link>
-      <Routes>
-      <Route exact path="/" component={Home} />
-      <Route path="/about" component={About} />
-      </Routes> */}
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>
+              <h1>SOS Chatbot</h1>
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Chatbot></Chatbot>
+          </Modal.Body>
+        </Modal>
 
         <div className="container">
           <div className="row featurette">
             <div className="col-md-7 ">
+              <a href="https://www.instagram.com/your-profile">
+                <i className="bi-instagram"></i>
+              </a>
+              <a href="https://github.com/your-username">
+                <i className="bi-github"></i>
+              </a>
 
-                  <Map></Map>      {/*when i put this here the map becomes big in size and overflows in the website  */}
-          
-    
-<<<<<<< HEAD
-=======
- 
->>>>>>> 5889e3bfd97035853aec7c3aef653e492ea3226b
-
-
-              {/* <a href="https://www.instagram.com/your-profile">
-  <i className="bi-instagram"></i>
-
-</a>
-<a href="https://github.com/your-username">
-<i className="bi-github"></i>
-</a> */}
-
-              {/* <h1>Working in progress</h1>
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                className="btn btn-primary"
-                onClick={() => null}
-                >
-                Launch
-              </motion.button>
-              <motion.div
-                // animate={{ scale: [1, 1.2] }}
-                // onScroll={(e) => {e.preventDefault();}}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                >
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Impedit ex, perferendis amet, neque nulla dolorem ducimus
-                laudantium quos perspiciatis consequatur ad! Consequatur dolorum
-                inventore a fuga recusandae nemo neque. Ex.
-              </motion.div>
-            </div> */}
-            <div className="px-5 mb-4 bg-light rounded-3" id="">
-
-              <div className="container-fluid py-5">
-                 <Map height={300} defaultCenter={[50.879, 4.6997]} defaultZoom={11}>
-      <Marker width={50} anchor={[50.879, 4.6997]} />
-      <Marker width={50} anchor={[51.879, 4.6997]} />
-    </Map>
- 
+              <div className="px-5 mb-4 bg-light rounded-3" id="">
+                <div className="container-fluid py-5">
+                  <MapCustom></MapCustom>
+                </div>
               </div>
-            </div>
-            <div className="col-md-5">
-              <div className=" bg-custom-color">
-                <i className="bi-alarm"></i>
-                <motion.p onScroll={() => console.log("hi")}>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi
-                  distinctio obcaecati exercitationem, fugit doloribus eveniet
-                  reiciendis voluptate, impedit, officia fuga vitae. Hic
-                  voluptatem ab nobis odit reiciendis quaerat, excepturi natus
-                  dolorem aperiam reprehenderit quo ipsum esse. Accusantium
-                  optio dolore sapiente autem rem facilis dolorem odit ratione,
-                  expedita tempore magnam eveniet ex, repellat eos quam corrupti
-                  fugiat distinctio beatae, esse obcaecati! Rerum, fugiat et. In
-                  nemo placeat provident officiis, blanditiis facere maiores
-                  veritatis eius sit perspiciatis magni facilis quia minima
-                  adipisci necessitatibus! Aperiam aliquam hic nihil sequi
-                  aliquid, beatae iste repellendus maxime impedit aut, odit
-                  recusandae maiores distinctio? Ab corporis deserunt atque
-                  vero, laboriosam consequatur aspernatur, vel, fuga cupiditate
-                  iusto voluptates sapiente totam! Quisquam, laborum
-                  reprehenderit, nostrum hic odio dicta at ipsam autem
-                  aspernatur obcaecati nobis ut vel sunt facere repellendus ea
-                  possimus doloribus enim? Enim, labore ipsa! Ab tempore hic
-                  magnam est animi sit debitis, repellat nulla illum dolores vel
-                  vitae corporis laudantium delectus iure aut? Quo dicta unde
-                  aliquam facilis tempora reiciendis deleniti ullam eos vero ex
-                  odio molestiae, illo magnam neque asperiores aspernatur
-                  officia? Tempora culpa velit quae ea odit natus cupiditate
-                  dolor vitae debitis, numquam maiores, aut dicta fuga sequi,
-                  laboriosam laborum facilis modi nemo animi? Ut iusto optio
-                  minus perspiciatis eum nihil, atque similique eos officia
-                  accusantium incidunt totam, quam eveniet ad asperiores ea?
-                  Itaque debitis cum, vitae ea dolore deleniti commodi magnam
-                  alias soluta exercitationem! Quam amet, repellat placeat
-                  consectetur sed, possimus minus quis soluta sequi laborum
-                  numquam nulla totam ullam, unde quos error? Dolorem tenetur
-                  vitae earum debitis, nam unde cumque nemo sequi reiciendis
-                  mollitia ab a cum explicabo ducimus ipsum nobis officiis
-                  tempore. Nulla necessitatibus, consectetur molestias facilis
-                  eligendi quos impedit quas tenetur sed minima repellendus enim
-                  reiciendis laudantium quidem soluta amet eveniet quis
-                  doloribus ex totam harum numquam accusantium! Dolorem,
-                  obcaecati ex?
-                </motion.p>
+              <div className="col-md-5">
+                <div className=" bg-custom-color">
+                  <i className="bi-alarm"></i>
+                </div>
               </div>
             </div>
           </div>
-        </div>
         </div>
         <main>
           <div className="container py-4">
@@ -211,7 +106,7 @@ function App() {
               <a
                 href="/"
                 className="d-flex align-items-center text-dark text-decoration-none"
-                >
+              >
                 <span className="fs-4">Jumbotron example</span>
               </a>
             </header>
@@ -237,7 +132,7 @@ function App() {
                           <Form.Group
                             className="mb-3"
                             controlId="entry.162308873"
-                            >
+                          >
                             <Form.Label>Email address</Form.Label>
                             <Form.Control
                               type="email"
@@ -245,14 +140,14 @@ function App() {
                               name="entry.162308873"
                               maxLength="50"
                               required
-                              />
+                            />
                           </Form.Group>
                         </Col>
                         <Col lg={6} md={6}>
                           <Form.Group
                             className="mb-3"
                             controlId="entry.1166974658"
-                            >
+                          >
                             <Form.Label>Phone Number</Form.Label>
                             <Form.Control
                               type="number"
@@ -260,26 +155,16 @@ function App() {
                               name="entry.1166974658"
                               maxLength="12"
                               required
-                              />
+                            />
                           </Form.Group>
                         </Col>
                       </Row>
-
-                      <Form.Group className="mb-3" controlId="entry.839337160">
-                        <Form.Label>Message for me</Form.Label>
-                        <Form.Control
-                          type="text"
-                          placeholder="Hi! We need an Awesome Web Developer like you...😆😆"
-                          name="entry.839337160"
-                          maxLength="100"
-                        />
-                      </Form.Group>
 
                       <input
                         type="text"
                         className="visually-hidden"
                         id="chonky"
-                        />
+                      />
                       <Button variant="btn btn-md text-bg-dark" type="submit">
                         Submit
                       </Button>
@@ -296,23 +181,12 @@ function App() {
             <div className="row align-items-md-stretch">
               <div className="col-md-6">
                 <div className="h-100 p-5 text-bg-dark rounded-3 text-center">
-                  <h2>It's me hi! I am the solution it's me 🎵🎵🎵</h2>
-                  <figure>
-                    <img
-                      src="../src/assets/profile-img/profileimg2.png"
-                      className="img-fluid round-img py-5"
-                      alt="image"
-                      />
-                    <figcaption>Caption for the image</figcaption>
-                  </figure>
-
-                  <p>
-                    Swap the background-color utility and add a `.text-*` color
-                    utility to mix up the jumbotron look. Then, mix and match
-                    with additional component themes and more.
-                  </p>
+                  <h2>Latest News</h2>
+                  <NewsItem></NewsItem>
+                  <NewsItem></NewsItem>
+                  <NewsItem></NewsItem>
                   <button className="btn btn-outline-light" type="button">
-                    Example button
+                    See More{" "}
                   </button>
                 </div>
               </div>
@@ -342,8 +216,15 @@ function App() {
             <footer className="pt-3 mt-4 text-muted border-top">© 2022</footer>
           </div>
         </main>
-      
-                      </BrowserRouter>
+        <About />
+        <Routes>
+          <Route path="/" component={<MapCustom />} />
+          <Route path="/locate" component={<MapCustom />} />
+          <Route path="/about" component={<About />} />
+          <Route path="/helpme" component={<About />} />
+          <Route path="/rescue" component={<About />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }

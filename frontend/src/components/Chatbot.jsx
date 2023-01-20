@@ -1,15 +1,6 @@
 import React from "react";
 import { createElement } from "react";
 
-// $(document).ready(function(){
-//   $("#myInput").on("keyup", function() {
-//     var value = $(this).val().toLowerCase();
-//     $("#myTable tr").filter(function() {
-//       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-//     });
-//   });
-// });
-
 function filterFunction() {
   var input, filter, ul, li, a, i;
   input = document.getElementById("myInput");
@@ -49,7 +40,7 @@ function addElement(data) {
 function talk() {
   var user = document.getElementById("userBox").value; //get value
   document.getElementById("userBox").value = ""; //set input to nothing
-  addElement(user);   //create the text box for user input
+  addElement(user); //create the text box for user input
 
   if (user in know) {
     addElement(know[user]);
@@ -62,21 +53,41 @@ export default function chatbot() {
   return (
     <>
       <h1 id="chatLog">Chatbot</h1>
+
+      <div id="myList">
+        <p>Hi! I am SOS Chatbot</p>
+        <p>Commands that I can understand :</p>
+        <ul>
+        <li>Help me</li>
+        <li>I want to help others</li>
+        <li>Share my location</li>
+        <li>View Map</li>
+        <li>Find nearest shelter</li>
+        <li>Current Situation</li>
+        <li>Navigate through the page</li>
+        </ul>
+      </div>
       
-      <div id="myList"></div>
       <div class="container text-center">
         <div class="row">
           <div class="col-10">
-
-          <div class="mb-3">
-    <input type="text" className="form-control" id="userBox" onKeyDown={keyPressedDown} placeholder="Send Message"/>  </div>
+            <div class="mb-3">
+              <input
+                type="text"
+                className="form-control"
+                id="userBox"
+                onKeyDown={keyPressedDown}
+                placeholder="Send Message"
+              />
+            </div>
           </div>
           <div class="col-2">
-<button className="btn btn-primary" onClick={talk}>Send</button>
+            <button className="btn btn-primary" onClick={talk}>
+              Send
+            </button>
           </div>
         </div>
       </div>
-
     </>
   );
 }
