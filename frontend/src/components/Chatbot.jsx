@@ -1,7 +1,6 @@
 import React from "react";
 import { createElement } from "react";
 
-function filterFunction() {
 
 const know = {
   "hello": "Hi there!",
@@ -27,7 +26,8 @@ function addElement(data) {
   document.getElementById("myList").appendChild(node);
 }
 function talk() {
-  var user = document.getElementById("userBox").value; //get value
+  var result = document.getElementById("userBox").value; //get value
+var user =result.toLowerCase();
   document.getElementById("userBox").value = ""; //set input to nothing
   addElement(user); //create the text box for user input
 
